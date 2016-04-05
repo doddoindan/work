@@ -1,0 +1,221 @@
+<form id="msform" class="margin-top-40" data-bind="visible: showFanpageData()">
+    <div >
+        <ul id="progressbar">
+            <li class="active">first</li>
+            <li>second</li>
+            <li>third</li>
+        </ul>
+
+        <fieldset class="u-full-width" id="fs1" >
+            <div class="fieldset-container container">
+                <div class="row" data-bind="with: fanpageData">
+                    <div class="column">
+
+                        <div class="required-fld">
+                            <input class="u-full-width input-icon-field icon-facebook" type="text" placeholder="Facebook link" title="Facebook link" data-bind="value: link">
+                        </div>
+                        <div class="required-fld">
+                            <input class="u-full-width input-icon-field icon-name" type="text" placeholder="Name" data-bind="value: name">
+                        </div>
+                        <div class="required-fld">
+                            <input class="u-full-width input-icon-field icon-phone" type="text" placeholder="Phone number" data-bind="value: phone">
+                        </div>
+                        <div class="required-fld">
+                            <input class="u-full-width input-icon-field icon-website" type="text" placeholder="Website link" data-bind="value: website">
+                        </div>
+                        <div class="required-fld">
+                            <input class="u-full-width input-icon-field icon-mail" type="text" placeholder="Email" data-bind="value: emails">
+                        </div>
+                        <select class="u-full-width input-icon-field icon-foursquare" id="fsqr_url" name="Foursquare link"
+                                data-bind="options: $root.fsqrList(),
+                                                                                                optionsCaption: 'Choose...',
+                                                                                              optionsValue: 'id',
+                                                                                              optionsText:'name',
+                                                                                              value : fsqr_url ,
+                                                                                               event : {change: $root.selectionChanged}">
+                        </select>
+
+                        <select class="u-full-width input-icon-field icon-insta"  id="insta_url" data-bind="options: $root.instagramList(),
+                                                                                                optionsCaption: 'Choose...',
+                                                                                              optionsValue: 'id',
+                                                                                              optionsText:'name',
+                                                                                              value : insta_url,
+                                                                                               event : {change: $root.selectionChanged}">
+                        </select>
+                        <select class="u-full-width input-icon-field icon-yelp" id="yelp_url" data-bind="options: $root.yelpList(),
+                                                                                                optionsCaption: 'Choose...',
+                                                                                              optionsValue: 'url',
+                                                                                              optionsText:'name',
+                                                                                              value : yelp_url ">
+
+                        </select>
+
+                        <input class="u-full-width input-icon-field icon-google" type="text" placeholder="Google plus link" data-bind="value: gplus_url">
+
+
+                        <input class="u-full-width input-icon-field icon-home" type="text" placeholder="Address" data-bind="value: location_street">
+
+                    </div>
+                    <div class="row">
+                        <div class="four columns">
+                            <input class="u-full-width input-icon-field icon-home" type="text" placeholder="Zip code" data-bind="value: location_zip">
+                        </div>
+                        <div class="eight columns">
+                            <input class="u-full-width input-icon-field icon-home" type="text" placeholder="City" data-bind="value: location_city">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="column">
+                        <p>*required fields</p>
+                    </div>
+                </div>
+                <!-----------Google Maps------------->
+                <div class="row margin-top-25">
+                    <div class="column u-full-width">
+                        <div id="mapCanvas1"  > </div>
+                    </div>
+                </div>
+                <!----------------------------------->
+                <div class="row" >
+                    <div class="column"></br>
+                        <p>You can adjust the marker on the map to show your real location</p>
+                    </div>
+                </div>
+                <div class="row margin-top-40">
+                    <div class="six columns">
+
+                        <a data-bind="click: $root.goToSelectFanpage"  class=" btn red width-80p " >Back</a>
+                    </div>
+                    <div class="six columns">
+                        <a data-bind="click: $root.goToEditFanpageN.bind($data,2)" class=" btn red width-80p pull-right"  >Next</a>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="u-full-width" id="fs2" >
+            <div class="container fieldset-container" >
+                <div class="row">
+                    <div class="column">
+                        <label for="addCategory">add category</label>
+                        <select class="u-full-width" multiple = "multiple" id="addCategory"
+                                data-bind="options: $root.categoryList, selectedOptions: $root.selectedCategories">
+
+                        </select>
+                        <div  data-bind="with: fanpageData">
+                            <label for="localBusinesInfo" class="margin-top-25">Local business info</label>
+                            <textarea class="u-full-width height-110" id="localBusinesInfo"  data-bind="value: description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="eight columns"><label for="businessHours">Business hours</label></div>
+                    <div class="four columns photos-col"> <label for="photos">Add Photos</label></div>
+                </div>
+                <div class="row">
+                    <div class="eight columns">
+                        <!----------------------->
+
+                        <div class="row" id="businessHours"></div>
+                        <div class="row margin-top-40">
+                            <div class="four columns">
+                                <label>Parking</label>
+                            </div>
+                            <div class="four columns">
+                                <label>Payment</label>
+                            </div>
+                            <div class="four columns">
+                                <label>Price</label>
+                            </div>
+                        </div>
+                        <div class="row " data-bind="with: fanpageData">
+                            <div class="four columns">
+                                <input type="checkbox"  data-bind="checked: parking_street" > Street <br>
+                                <input type="checkbox"  data-bind="checked: parking_lot" > Lot
+                            </div>
+                            <div class="four columns">
+                                <input type="checkbox"  data-bind="checked: payment_cash_only" >  Cash only <br>
+                                <input type="checkbox"  data-bind="checked: payment_mastercard" >  Mastercard <br>
+                                <input type="checkbox"  data-bind="checked: payment_visa" >  Visa
+                            </div>
+                            <div class="four columns">
+                                 <select class=""  data-bind="options: $root.priceRangeList,
+                                                                                                optionsCaption: 'Choose...',
+                                                                                              optionsValue: 'price',
+                                                                                              optionsText:'price',
+                                                                                              value : price_range ">
+
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four columns " data-bind="with: fanpageData">
+
+                        <div class="img-wrapper margin-right-30" data-bind="click: $root.uploadPhoto" id="picture_uploaded"
+                             data-field="picture_uploaded" data-rtrvdfield="picture">
+                            <a class="boxclose"  data-bind="click: $root.closePhoto ,visible: ( picture_uploaded)"></a>
+                            <img data-bind="attr: {src: picture}, visible:( !picture_uploaded && picture ) " class="img-fanpage cursor-pointer"
+                                 data-field="picture_uploaded" data-rtrvdfield="picture" title="Click to upload additional photo">
+                            <img data-bind="attr: {src: picture_uploaded}, visible:picture_uploaded"  class="img-fanpage">
+                        </div>
+
+                        <div class="img-wrapper margin-right-30" data-bind="click: $root.uploadPhoto" id="cover_uploaded"
+                             data-field="cover_uploaded" data-rtrvdfield="cover">
+                            <a class="boxclose"  data-bind="click: $root.closePhoto ,visible: (cover_uploaded)"></a>
+                            <img data-bind="attr: {src: cover}, visible:((!cover_uploaded) && cover) " class="img-fanpage cursor-pointer"
+                                 data-field="cover_uploaded" data-rtrvdfield="cover" title="Click to upload additional photo">
+                            <img data-bind="attr: {src: cover_uploaded}, visible:cover_uploaded"  class="img-fanpage">
+                        </div>
+
+                        <div class="img-wrapper margin-right-30" data-bind="click: $root.uploadPhoto" id="insta_uploaded"
+                             data-field="insta_uploaded" data-rtrvdfield="insta_picture">
+                            <a class="boxclose"  data-bind="click: $root.closePhoto ,visible: ( insta_uploaded)"></a>
+                            <img data-bind="attr: {src: insta_picture}, visible:(!insta_uploaded && insta_picture ) " class="img-fanpage cursor-pointer"
+                                 data-field="insta_uploaded" data-rtrvdfield="insta_picture" title="Click to upload additional photo">
+                            <img data-bind="attr: {src: insta_uploaded}, visible:insta_uploaded"  class="img-fanpage">
+                        </div>
+
+                        <div class="img-wrapper"  data-bind="click: $root.uploadPhoto" id="fsqr_uploaded"  data-field="fsqr_uploaded" data-rtrvdfield="fsqr_picture">
+                            <a class="boxclose" data-bind="click: $root.closePhoto, visible: (fsqr_uploaded)"></a>
+                            <img data-bind="attr: {src: fsqr_picture}, visible:(!fsqr_uploaded && fsqr_picture)" class="img-fanpage cursor-pointer"
+                                 data-field="fsqr_uploaded" data-rtrvdfield="fsqr_picture" title="Click to upload additional photo">
+                            <img data-bind="attr: {src: fsqr_uploaded}, visible:fsqr_uploaded" class="img-fanpage">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row margin-top-40">
+                    <div class="six columns">
+                        <a data-bind="click: $root.goToEditFanpageN.bind($data,1)" class=" btn red width-80p " value="Back" >Back</a>
+                    </div>
+                    <div class="six columns">
+                        <a data-bind="click: $root.save" class=" btn red width-80p pull-right" >Next</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="hiddenfile">
+                <input type="file" accept="image/*" id="file" class="fileChooser"/>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="u-full-width" id="fs3">
+            <div class="container fieldset-container" >
+                <div class="row">
+                    <div class="column bg-smile">
+                    </div>
+                </div>
+                <div class="row margin-top-40">
+                    <div class="column" align="center">
+                        <H5 class="font-gray"> Thank you for adding your local business </H5>
+                        <H5 class="font-green"> We will add your local business within 24 hours. </H5>
+                        <a data-bind="click: $root.goToSelectFanpage" class=" btn red width-300px margin-top-40" >Back to wherepro</a>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</form>

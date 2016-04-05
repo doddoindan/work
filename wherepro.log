@@ -1,0 +1,28 @@
+[2016-04-05 15:26:30,194] INFO - Server is UP!!!
+[2016-04-05 15:27:46,399] ERROR - 
+  File "/Volumes/STORAGE/_PROJECTS/Wherepro/app/Utils.py", line 27, in decorator
+    return f(*args, **kwargs)
+  File "/Volumes/STORAGE/_PROJECTS/Wherepro/app/Utils.py", line 52, in auth_single
+    raise ProcessingException(description='Access denied', code=405)
+
+ProcessingException:
+
+[2016-04-05 15:33:26,211] ERROR - 
+  File "/Volumes/STORAGE/_PROJECTS/Wherepro/app/Utils.py", line 27, in decorator
+    return f(*args, **kwargs)
+  File "/Volumes/STORAGE/_PROJECTS/Wherepro/app/Utils.py", line 52, in auth_single
+    raise ProcessingException(description='Access denied', code=405)
+
+ProcessingException:
+
+[2016-04-05 15:36:01,171] INFO - Server is UP!!!
+[2016-04-05 15:36:27,171] ERROR - 
+  File "/Volumes/STORAGE/_PROJECTS/Wherepro/app/Utils.py", line 27, in decorator
+    return f(*args, **kwargs)
+  File "/Volumes/STORAGE/_PROJECTS/Wherepro/app/Utils.py", line 52, in auth_single
+    raise ProcessingException(description='Access denied', code=405)
+
+ProcessingException:
+
+[2016-04-05 15:38:16,095] INFO - Server is UP!!!
+[2016-04-05 15:43:36,952] INFO - Server is UP!!!

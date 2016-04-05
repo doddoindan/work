@@ -1,0 +1,49 @@
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+#SESSION_TYPE = 'sqlalchemy'
+
+CACHE_TYPE = 'simple'
+CACHING_TIME = 600 #10 minutes
+
+SECRET_KEY = 'super secret key'
+
+APP_FOLDER = '/Volumes/STORAGE/_PROJECTS/WherePro/'
+
+LOG_FILE = 'wherepro.log'
+
+UPLOADED_TEMP_FOLDER = '/uploads/temp'
+UPLOADED_IMAGE_FOLDER = '/uploads/images'
+UPLOADED_PHOTOS_DEST = APP_FOLDER + UPLOADED_TEMP_FOLDER
+
+DEBUG = True
+
+CANVAS_CLIENT_ID = '1687673891497352'
+CANVAS_CLIENT_SECRET ='f20f87bc6e0575f25e1638e0d52449b6'
+CANVAS_REDIRECT_URI = 'https://apps.facebook.com/doddoindan'
+CANVAS_SCOPE = 'public_profile,manage_pages'
+CANVAS_ERROR_URI = '/error'
+
+
+SQLALCHEMY_DATABASE_URI = 'mysql://root:new-password@localhost:8889/wherepro'
+#SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+
+####
+INSTAGRAM_CLIENT_ID = '2c4b978417774b558870d4ba0971e0e2'
+
+YELP_CONSUMER_KEY = 'F-naHE6BYt1MGyoglrg6Zg'
+YELP_CONSUMER_SECRET = 'pXswUu4VtXQ1yB1kdjZm7qzngoQ'
+YELP_TOKEN = 'BnWk1zALlYLkaHs1Yruhv-VrZl2yKqiW'
+YELP_TOKEN_SECRET = 'Wn84E19WE1fM_vQlYmiHfLocN9s'
+
+FOURSQUARE_KEY = 'SH4V01RUD5LFUPEUWRW21VLT1GGTBQUYCKMH4CXQZTP3L4HT'
+FOURSQUARE_SECRET = 'FZVZQEDZKJ4WNSRPM1MY1BJOHUUCJ5L1YA2TKFAM23LNXXIS'
+#####
+
+
+CELERY_BROKER_URL ='redis://localhost:6379'
+CELERY_RESULT_BACKEND ='redis://localhost:6379'
+
+PROPAGATE_EXCEPTIONS = True
+
+

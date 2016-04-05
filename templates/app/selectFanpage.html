@@ -1,0 +1,34 @@
+ <!----Select Fanap BEGIN ------>
+    <div class=" margin-top-40" id="selectBusiness" data-bind="visible: showSelectFanpage()">
+        <div class="row margin-auto-main"  >
+            <div class="column u-full-width ">
+                <span class="welcome"> Your Business in &nbsp;</span>
+                <img class="welcome" src="static/images/logo_black.png"></br>
+                <p>Podstawowe informacia</p>
+            </div>
+        </div>
+
+        <div class="row margin-auto-main">
+            <div class="column">
+                Pick your local business</br>
+
+                <select class="u-full-width" data-bind="options: fanpagesList(),
+                                                                 optionsValue: 'id',
+                                                                 optionsText:'name',
+                                                                 value:selectedFanpage,
+                                                                 optionsCaption: 'Choose...'">
+                </select>
+
+
+            </div>
+        </div>
+        <div class="row margin-auto-main margin-top-40"  >
+            <div class="six columns ">
+                <a class="btn red width-300px" data-bind="click: $root.goToEditFanpage">Edit business information</a>
+            </div>
+            <div class="six columns ">
+                <a href="#" class="btn red width-300px pull-right" >Edit invoice information</a>
+            </div>
+        </div>
+    </div>
+    <!----Select Fanap END ------>
